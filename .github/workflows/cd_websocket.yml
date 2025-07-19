@@ -19,6 +19,6 @@ jobs:
         uses: docker/build-push-action@v4
         with: 
           context: .
-          file: ./docker/Dockerfile_websocket
+          file: ./docker/Dockerfile.websocket
           push: true
-          tags: karan63/todo-app-websocket:${{ github:sha }}
+          tags: karan63/todo-app-websocket:${{ github.sha }}
