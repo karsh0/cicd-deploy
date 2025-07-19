@@ -1,5 +1,5 @@
-import { WebSocketServer } from "ws";
-import { prisma } from "db/index"
+import { prisma } from "db"
+import { WebSocketServer } from "ws"
 
 const wss = new WebSocketServer({port:8080})
 
