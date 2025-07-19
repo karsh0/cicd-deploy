@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  backend:
+    image: node:22
+    context: ./docker/Dockerfile.backend
+    ports:
+      - 8080:8080
+    
+  websocket:
+    image: node:22
+    context: ./docker/Dockerfile.websocket
+    ports:
+      - 8081:8081
+
+  frontend:

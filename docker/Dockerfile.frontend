@@ -1,0 +1,20 @@
+FROM node:20-alpine
+
+WORKDIR /usr/src/app
+
+# pass the build argument while building this dockerfile
+ARG DATABASE_URL
+
+COPY ./packages ./packages
+COPY ./package.json ./package.json
+COPY ./turbo.json ./turbo.json
+COPY ./apps/web ./apps/web
+
+
+RUN npm install
+RUN npm db:generate
+RUN npm DATABASE_URL=${DATABASE_URL} build
+
+EXPOSE 8080
+
+CMD ["npm", "run", "start:web"]
